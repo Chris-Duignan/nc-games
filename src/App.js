@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserContext } from "./components/User";
 import "./App.css";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
-import Main from "./components/Main";
+import ReviewList from "./components/ReviewList";
+import CategoryList from "./components/CategoryList";
 import Footer from "./components/Footer";
 
 function App() {
@@ -15,7 +16,10 @@ function App() {
         <div className="App">
           <Header />
           <Nav />
-          <Main />
+          <Routes>
+            <Route path="/" element={<ReviewList/>} />
+            <Route path="/categories/:slug" element={<CategoryList />} />
+          </Routes>
           <Footer />
         </div>
       </BrowserRouter>

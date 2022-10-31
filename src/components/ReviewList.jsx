@@ -17,11 +17,14 @@ const ReviewList = () => {
   if (isLoading) return <h3 className="loading">Loading ...</h3>;
   else
     return (
-      <ul className="reviewsList">
-        {reviews.map((review) => {
-          return <ReviewCard key={review.review_id} review={review} />;
-        })}
-      </ul>
+      <main>
+        <h2>You are viewing all results</h2>
+        <ul className="reviewsList">
+          {reviews.map((review) => {
+            return <ReviewCard key={review.review_id} review={review} />;
+          })}
+        </ul>
+      </main>
     );
 };
 
