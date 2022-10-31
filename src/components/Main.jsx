@@ -1,5 +1,4 @@
 import ReviewList from "./ReviewList";
-import { useState } from "react";
 
 const Main = () => {
 

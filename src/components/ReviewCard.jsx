@@ -1,5 +1,5 @@
 const ReviewCard = ({ review }) => {
-  console.log(review);
+
   return (
     <li className="reviewCard">
       <img src={review.review_img_url} alt={review.title}></img>
