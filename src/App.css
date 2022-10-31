@@ -1,16 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  position: relative;
+  min-height: 100vh;
 }
 
 .App-header {
@@ -35,4 +31,80 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Header {
+  background-color: #A20021;
+  color: #ededf4;
+  text-align: left;
+  width: 100%;
+  height: 5rem;
+}
+
+.nav {
+  height: 4rem;
+  background-color: #a20021;
+  border-top: 1px #ededf4 solid;
+  color: #ededf4;
+  width: 100%;;
+}
+
+.navList li {
+  display: inline;
+  margin: 1rem;
+  font-weight: bold;
+  border-right: 1px #ededf4 solid;
+}
+
+.footer {
+  background-color: #A20021;
+  color: #ededf4;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+.main {
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+  margin: 0 auto;
+}
+
+.reviewsList {
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  height: 10rem;
+  margin: 1% auto;
+  border: 1px black solid;
+  border-radius: 10px;
+  background-color: #00C9AA;
+  width: 100%;
+}
+
+.reviewCard > section {
+  max-width: 80%;
+  text-align: left;
+  padding: 0.5% 2%;
+  overflow: hidden;
+}
+
+.reviewCard section p {
+  margin: 0.5rem;
+}
+
+img {
+ height: 100%;
+ width: 15%;
+ object-fit: cover;
+ border-radius: 10px;
+ margin: 0;
 }
