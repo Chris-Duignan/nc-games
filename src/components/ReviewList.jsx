@@ -17,9 +17,9 @@ const ReviewList = () => {
   if (isLoading) return <h3 className="loading">Loading ...</h3>;
   else
     return (
-      <main>
+      <main className="reviewsList">
         <h2>You are viewing all results</h2>
-        <ul className="reviewsList">
+        <ul>
           {reviews.map((review) => {
             return <ReviewCard key={review.review_id} review={review} />;
           })}
