@@ -14,7 +14,6 @@ const ReviewCard = ({ review }) => {
           <p>
             <b>{review.votes}</b> victory points
           </p>
-          <p>{review.review_body}</p>
         </section>
       </li>
     </Link>

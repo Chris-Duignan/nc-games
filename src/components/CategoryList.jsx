@@ -29,7 +29,7 @@ const CategoryList = () => {
     return (
       <main className="reviewsList">
         <h2>Category: {slug}</h2>
-        <ul>
+        <ul className="cardList">
           {reviews.map((review) => {
             return <ReviewCard key={review.review_id} review={review} />;
           })}

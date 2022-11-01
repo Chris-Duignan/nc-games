@@ -19,7 +19,7 @@ const ReviewList = () => {
     return (
       <main className="reviewsList">
         <h2>You are viewing all results</h2>
-        <ul>
+        <ul className="cardList">
           {reviews.map((review) => {
             return <ReviewCard key={review.review_id} review={review} />;
           })}

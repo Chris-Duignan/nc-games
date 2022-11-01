@@ -73,15 +73,19 @@ main {
   text-align: justify;
 }
 
+.cardList {
+  width: 100%;
+}
+
 .reviewCard {
   display: flex;
   flex-direction: row;
   list-style-type: none;
   height: 10rem;
   margin: 1% auto;
-
   border-radius: 10px;
   background-color: #ededf4;
+  
 }
 
 .reviewCard > section {
