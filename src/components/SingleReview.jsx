@@ -26,16 +26,22 @@ const SingleReview = () => {
   const incrementVotesClick = () => {
     setVotes((currVotes) => currVotes + 1);
     setErr(null);
-    patchReviewVotesById(review.review_id, 1)
+    patchReviewVotesById(review.review_id, 1).catch(err => {
+      setVotes(currVotes => currVotes-1)
+      setErr("Oops, something went wrong, please try again")
+    })
   };
 
   const decrementVotesClick = () => {
     setVotes((currVotes) => currVotes - 1);
     setErr(null);
-    patchReviewVotesById(review.review_id, -1)
+    patchReviewVotesById(review.review_id, -1).catch(err => {
+      setVotes(currVotes=>currVotes+1)
+      setErr("Oops, something went wrong, please try again")
+    })
   };
 
-  if (err) return <h3>Review {err}</h3>;
+  if (err) return <h3>{err}</h3>;
   if (isLoading) return <h3>Loading ...</h3>;
   else
     return (
