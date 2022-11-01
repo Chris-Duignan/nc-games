@@ -23,10 +23,15 @@ const Nav = () => {
       <nav className="nav">
         <ul className="navList">
           <Link to="/">Home</Link>
-          <Expandable className="dropdown" tag={tag}>
-            {categories.map((category) => {
-              return <Option className="dropdownOption" option={category.slug} />;
-            })}
+          <Expandable tag={tag}>
+              {categories.map((category) => {
+                return (
+                  <Option
+                    key={category.slug}
+                    option={category.slug}
+                  />
+                );
+              })}
           </Expandable>
         </ul>
       </nav>

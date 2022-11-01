@@ -8,7 +8,7 @@ const Expandable = ({ children, tag }) => {
   };
 
   return (
-    <ul>
+    <ul className="dropdown">
       <button onClick={toggleOpen}>{tag}</button>
       {isOpen && children}
     </ul>
