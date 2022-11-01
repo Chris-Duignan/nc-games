@@ -38,6 +38,21 @@
   color: #ededf4;
 }
 
+.dropdown button{
+  background-color: inherit;
+  color: #ededf4;
+  font-size: 1rem;
+  outline: 0;
+  border: 0;
+  font-weight: bold;
+}
+
+.dropdownOption {
+  color: black;
+  text-decoration: none;
+}
+
+
 .footer {
   background-color: #A20021;
   color: #ededf4;
