@@ -6,15 +6,22 @@ import Comment from "./Comment";
 const CommentsList = ({ review_id }) => {
   const [comments, setComments] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchCommentsByReviewId(review_id).then((comments) => {
-      setComments(comments);
-      setIsLoading(false);
-    });
+    setErr(null);
+    fetchCommentsByReviewId(review_id)
+      .then((comments) => {
+        setComments(comments);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setErr("Oops, something went wrong, try again later");
+      });
   }, [review_id]);
 
+  if (err) return <h3>{err}</h3>;
   if (isLoading) return <h3>Loading ...</h3>;
   return (
     <section className="commentsContainer">
