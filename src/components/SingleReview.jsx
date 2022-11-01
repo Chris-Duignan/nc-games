@@ -5,7 +5,6 @@ import CommentsList from "./CommentsList";
 
 const SingleReview = () => {
   const [review, setReview] = useState(null);
-  const [comments, setComments] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(null);
   const [votes, setVotes] = useState(0);
@@ -17,7 +16,7 @@ const SingleReview = () => {
     fetchReviewById(review_id)
       .then((review) => {
         setReview(review);
-        setVotes(review.votes)
+        setVotes(review.votes);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -28,19 +27,19 @@ const SingleReview = () => {
   const incrementVotesClick = () => {
     setVotes((currVotes) => currVotes + 1);
     setErr(null);
-    patchReviewVotesById(review.review_id, 1).catch(err => {
-      setVotes(currVotes => currVotes-1)
-      setErr("Oops, something went wrong, please try again")
-    })
+    patchReviewVotesById(review.review_id, 1).catch((err) => {
+      setVotes((currVotes) => currVotes - 1);
+      setErr("Oops, something went wrong, please try again");
+    });
   };
 
   const decrementVotesClick = () => {
     setVotes((currVotes) => currVotes - 1);
     setErr(null);
-    patchReviewVotesById(review.review_id, -1).catch(err => {
-      setVotes(currVotes=>currVotes+1)
-      setErr("Oops, something went wrong, please try again")
-    })
+    patchReviewVotesById(review.review_id, -1).catch((err) => {
+      setVotes((currVotes) => currVotes + 1);
+      setErr("Oops, something went wrong, please try again");
+    });
   };
 
   if (err) return <h3>{err}</h3>;
@@ -51,10 +50,10 @@ const SingleReview = () => {
         <article className="review">
           <img
             src={review.review_img_url}
-            alt={review.title}
+            alt={`game pieces for {review.title}`}
             className="reviewImg"
           ></img>
-          <section className="reviewBody">
+          <section>
             <h2>{review.title}</h2>
             <p> from {review.designer}</p>
             <p className="category">
@@ -71,9 +70,9 @@ const SingleReview = () => {
               </p>
               <button onClick={decrementVotesClick}>Downvote</button>
             </section>
-            <CommentsList review_id={review_id}/>
           </section>
         </article>
+        <CommentsList review_id={review_id} />
       </main>
     );
 };

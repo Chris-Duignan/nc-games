@@ -4,7 +4,7 @@ const ReviewCard = ({ review }) => {
   return (
     <Link className="link" to={`/reviews/${review.review_id}`}>
       <li className="reviewCard">
-        <img src={review.review_img_url} alt={review.title} className="thumbnail"></img>
+        <img src={review.review_img_url} alt={`game pieces for ${review.title}`} className="thumbnail"></img>
         <section>
           <h3>{review.title}</h3>
           <p className="category">
