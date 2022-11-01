@@ -19,7 +19,6 @@ const CategoryList = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err.response.data)
         setErr(err.response.data.msg);
       });
   }, [slug]);

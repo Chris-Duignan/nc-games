@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import ReviewList from "./components/ReviewList";
 import CategoryList from "./components/CategoryList";
+import SingleReview from "./components/SingleReview";
 import Footer from "./components/Footer";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" element={<ReviewList/>} />
+            <Route path="/reviews/:review_id" element={<SingleReview />} />
             <Route path="/categories/:slug" element={<CategoryList />} />
           </Routes>
           <Footer />

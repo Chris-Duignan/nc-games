@@ -10,14 +10,20 @@ export const fetchReviews = () => {
   });
 };
 
+export const fetchReviewById = (review_id) => {
+  return myApi.get(`/reviews/${review_id}`).then((res) => {
+    return res.data.review;
+  });
+};
+
 export const fetchCategories = () => {
   return myApi.get("/categories").then((res) => {
     return res.data.categories;
-  })
-}
+  });
+};
 
 export const fetchReviewsByCategory = (slug) => {
   return myApi.get(`/reviews?category=${slug}`).then((res) => {
     return res.data.reviews;
-  })
-}
+  });
+};
