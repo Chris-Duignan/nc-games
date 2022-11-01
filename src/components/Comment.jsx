@@ -1,6 +1,6 @@
 const Comment = ({comment}) => {
 return (
-    <article class="comment">
+    <article className="comment">
         <h4>{comment.author}</h4>
         <p>at {comment.created_at}</p>
         <p>{comment.body}</p>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchCommentsByReviewId } from "../api";
 
 import Comment from "./Comment";
+import CommentPlaceholder from "./CommentPlaceHolder"
 
 const CommentsList = ({ review_id }) => {
   const [comments, setComments] = useState(null);
@@ -27,6 +28,7 @@ const CommentsList = ({ review_id }) => {
     <section className="commentsContainer">
       <h3>Comments</h3>
       <ul className="commentsList">
+        <CommentPlaceholder comments={comments} />
         {comments.map((comment) => {
           return <Comment key={comment.comment_id} comment={comment} />;
         })}
