@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchReviewById } from "../api";
+import { fetchReviewById, patchReviewVotesById } from "../api";
 
 const SingleReview = () => {
   const [review, setReview] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(null);
+  const [votes, setVotes] = useState(0);
 
   const { review_id } = useParams();
 
@@ -14,12 +15,19 @@ const SingleReview = () => {
     fetchReviewById(review_id)
       .then((review) => {
         setReview(review);
+        setVotes(review.votes)
         setIsLoading(false);
       })
       .catch((err) => {
         setErr(err.response.data.msg);
       });
   }, [review_id]);
+
+  const incrementVotesClick = () => {
+    setVotes((currVotes) => currVotes + 1);
+    setErr(null);
+    patchReviewVotesById()
+  };
 
   if (err) return <h3>Review {err}</h3>;
   if (isLoading) return <h3>Loading ...</h3>;
@@ -42,9 +50,13 @@ const SingleReview = () => {
             <br></br>
             <p>{review.review_body}</p>
             <br></br>
-            <p>
-              <b>{review.votes}</b> victory points
-            </p>
+            <section className="vote">
+              <button onClick={increment}>Upvote</button>
+              <p>
+                <b>{votes}</b> victory points
+              </p>
+              <button>Downvote</button>
+            </section>
           </section>
         </article>
       </main>
