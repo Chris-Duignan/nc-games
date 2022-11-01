@@ -27,3 +27,7 @@ export const fetchReviewsByCategory = (slug) => {
     return res.data.reviews;
   });
 };
+
+export const patchReviewVotesById = (review_id, inc_votes) => {
+  return myApi.post(`/reviews/${review_id}`, {inc_votes});
+};
