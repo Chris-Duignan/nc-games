@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchCategories } from "../api";
+import Expandable from "./Expandable";
+import Option from "./Option";
 
 const Nav = () => {
+  const tag = "Categories";
   const [categories, setCategories] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,9 +23,16 @@ const Nav = () => {
       <nav className="nav">
         <ul className="navList">
           <Link to="/">Home</Link>
-          {categories.map((category) => {
-            return <Link key={category.slug} to={`/categories/${category.slug}`}>{category.slug}</Link>
-          })}
+          <Expandable tag={tag}>
+              {categories.map((category) => {
+                return (
+                  <Option
+                    key={category.slug}
+                    option={category.slug}
+                  />
+                );
+              })}
+          </Expandable>
         </ul>
       </nav>
     );
