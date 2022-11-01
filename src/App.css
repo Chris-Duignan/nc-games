@@ -38,6 +38,25 @@
   color: #ededf4;
 }
 
+.dropdown {
+  margin: 0%;
+  margin-left: 34.75%;
+  display: block;
+  position: absolute;
+  z-index: 99;
+  width: 160px;
+  color: #ededf4;
+  background-color: #A20021;
+  list-style-type: none;
+}
+
+.dropdownOption {
+  color: #ededf4;
+  text-decoration: none;
+  background-color: #a20021;
+}
+
+
 .footer {
   background-color: #A20021;
   color: #ededf4;
