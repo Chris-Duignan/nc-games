@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviewById, patchReviewVotesById } from "../api";
+import CommentsList from "./CommentsList";
 
 const SingleReview = () => {
   const [review, setReview] = useState(null);
+  const [comments, setComments] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(null);
   const [votes, setVotes] = useState(0);
@@ -69,6 +71,7 @@ const SingleReview = () => {
               </p>
               <button onClick={decrementVotesClick}>Downvote</button>
             </section>
+            <CommentsList review_id={review_id}/>
           </section>
         </article>
       </main>

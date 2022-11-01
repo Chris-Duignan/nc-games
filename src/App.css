@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+li {
+  list-style: none;
+}
+
 .App {
   position: relative;
   min-height: 100vh;
@@ -130,6 +134,32 @@ object-fit: cover;
   display: inline-block;
 }
 
+.vote {
+  padding-bottom: 2.5rem;
+}
+
 .vote > * {
   margin: 5px;
 }
+
+.commentsContainer {
+  border-top: 2px #001F54 solid;
+  border-right: 2px #001F54 solid;
+  border-left: 2px #001F54 solid;
+  border-radius: 10px 10px 0 0;
+  padding: 1rem;
+  margin: 1% auto;
+}
+
+.commentsList {
+  margin: 1rem;
+}
+
+.comment {
+  margin: 0.5rem;
+  border: 1px #7D84B2 solid;
+  border-radius: 10px;
+}
+
+
+/* Palette - A20021, EDEDF4, 7D84B2 0A1128 001F54 */
