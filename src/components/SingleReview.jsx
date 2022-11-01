@@ -26,7 +26,7 @@ const SingleReview = () => {
   const incrementVotesClick = () => {
     setVotes((currVotes) => currVotes + 1);
     setErr(null);
-    patchReviewVotesById()
+    patchReviewVotesById(review.review_id, 1)
   };
 
   if (err) return <h3>Review {err}</h3>;
@@ -51,7 +51,7 @@ const SingleReview = () => {
             <p>{review.review_body}</p>
             <br></br>
             <section className="vote">
-              <button onClick={increment}>Upvote</button>
+              <button onClick={incrementVotesClick}>Upvote</button>
               <p>
                 <b>{votes}</b> victory points
               </p>
