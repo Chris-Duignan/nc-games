@@ -29,6 +29,12 @@ const SingleReview = () => {
     patchReviewVotesById(review.review_id, 1)
   };
 
+  const decrementVotesClick = () => {
+    setVotes((currVotes) => currVotes - 1);
+    setErr(null);
+    patchReviewVotesById(review.review_id, -1)
+  };
+
   if (err) return <h3>Review {err}</h3>;
   if (isLoading) return <h3>Loading ...</h3>;
   else
@@ -55,7 +61,7 @@ const SingleReview = () => {
               <p>
                 <b>{votes}</b> victory points
               </p>
-              <button>Downvote</button>
+              <button onClick={decrementVotesClick}>Downvote</button>
             </section>
           </section>
         </article>
