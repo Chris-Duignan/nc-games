@@ -154,9 +154,9 @@ object-fit: cover;
 
 .commentsContainer {
   text-align: center;
-  border-top: 2px #001F54 solid;
-  border-right: 2px #001F54 solid;
-  border-left: 2px #001F54 solid;
+  border-top: 2px #A20021 solid;
+  border-right: 2px #A20021 solid;
+  border-left: 2px #A20021 solid;
   border-radius: 10px 10px 0 0;
   padding: 1rem;
   margin: 1% auto;
@@ -164,7 +164,9 @@ object-fit: cover;
 }
 
 .commentsList {
-  margin: 1rem;
+  margin: 1rem auto;
+  width: 100%;
+  padding-bottom: 2.5rem
 }
 
 .comment {
@@ -175,3 +177,34 @@ object-fit: cover;
 
 
 /* Palette - A20021, EDEDF4, 7D84B2 0A1128 001F54 */
+
+/*Comment adder*/
+
+.singleReview {
+  padding-bottom: 0;
+}
+
+.messageInput {
+  margin:  auto;
+  width: 70%;
+  height: 2rem;
+  background-color: #ededf4;
+  border-radius: 25px 0 0 25px;
+  text-align: center;
+  outline: 0;
+  border: 0;
+}
+
+.messageSubmit {
+  width: 20%;
+  height: 2rem;
+  background-color: #001F54;
+  color: #ededf4;
+  border: 0;
+  border-radius: 0 25px 25px 0;
+  outline: 0;
+}
+
+#commentLabel {
+  display: block;
+}
