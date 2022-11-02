@@ -2,29 +2,21 @@ import { useState, useEffect } from "react";
 import { fetchReviews } from "../api";
 import ReviewCard from "./ReviewCard";
 
-const ReviewList = () => {
-  const [reviews, setReviews] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+const ReviewList = ({reviews, isLoading}) => {
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetchReviews().then((reviews) => {
-      setReviews(reviews);
-      setIsLoading(false);
-    });
-  }, []);
+  console.log(reviews)
 
   if (isLoading) return <h3 className="loading">Loading ...</h3>;
   else
     return (
-      <main className="reviewsList">
+      <section className="reviewsList">
         <h2>You are viewing all results</h2>
         <ul className="cardList">
           {reviews.map((review) => {
             return <ReviewCard key={review.review_id} review={review} />;
           })}
         </ul>
-      </main>
+      </section>
     );
 };
 
