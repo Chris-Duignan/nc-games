@@ -4,8 +4,6 @@ import ReviewCard from "./ReviewCard";
 
 const ReviewList = ({reviews, isLoading}) => {
 
-  console.log(reviews)
-
   if (isLoading) return <h3 className="loading">Loading ...</h3>;
   else
     return (
