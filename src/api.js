@@ -37,3 +37,7 @@ export const fetchCommentsByReviewId = (review_id) => {
     return res.data.comments;
   })
 }
+
+export const postCommentsByReviewId = (review_id, request) => {
+  return myApi.get(`/reviews/${review_id}/comments`, request)
+}
