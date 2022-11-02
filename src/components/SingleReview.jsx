@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviewById, patchReviewVotesById } from "../api";
-import CommentsList from "./CommentsList";
+import CommentAdder from "./CommentAdder";
 
 const SingleReview = () => {
   const [review, setReview] = useState(null);
@@ -72,7 +72,7 @@ const SingleReview = () => {
             </section>
           </section>
         </article>
-        <CommentsList review_id={review_id} />
+        <CommentAdder review_id={review_id} />
       </main>
     );
 };
