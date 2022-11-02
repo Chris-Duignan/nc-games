@@ -1,9 +1,19 @@
-import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 
 const SortForm = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const sortTerms = ["created_at", "comments", "votes"];
   const order = ["asc", "desc"];
+
+  const [searchTerm, setSearchTerm] = useState({
+    sort_by: "created_at",
+    order: "desc",
+  });
+
+  const handleChange = (event) => {
+    setSearchTerm({ ...searchTerm, [event.target.name]: event.target.value });
+  };
+
+  console.log(searchTerm)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,7 +23,7 @@ const SortForm = () => {
     <form className="sortBar" onSubmit={handleSubmit}>
       <label>
         Sort By:
-        <select name="sort_by" id="sort_by">
+        <select name="sort_by" id="sort_by" onChange={handleChange}>
           {sortTerms.map((term) => (
             <option key={term} name="sort_by" value={term}>
               {term}
@@ -25,7 +35,7 @@ const SortForm = () => {
         return (
           <label key={`label${o}`}>
             {o}
-            <input key={o} type="radio" id={o} name="Order" value={o}></input>
+            <input key={o} type="radio" id={o} name="order" value={o} onChange={handleChange}></input>
           </label>
         );
       })}
