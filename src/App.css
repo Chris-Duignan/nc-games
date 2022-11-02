@@ -171,3 +171,19 @@ object-fit: cover;
 
 
 /* Palette - A20021, EDEDF4, 7D84B2 0A1128 001F54 */
+
+/*Sort Bar*/
+
+.sortButton{
+  width: 100%;
+}
+
+.sortBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto 2.5rem 0;
+  height: 2.5rem;
+}
