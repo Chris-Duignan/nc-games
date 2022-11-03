@@ -53,11 +53,11 @@ const CommentAdder = ({ review_id, setComments }) => {
               name="body"
               id="messageInput"
             ></input>
+            <button type="submit" className="messageSubmit">
+              <b>Submit</b>
+            </button>
           </>
         )}
-        <button type="submit" className="messageSubmit">
-          <b>Submit</b>
-        </button>
       </form>
     </section>
   );
