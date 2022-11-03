@@ -41,3 +41,7 @@ export const fetchCommentsByReviewId = (review_id) => {
 export const postCommentsByReviewId = (review_id, username, body) => {
   return myApi.post(`/reviews/${review_id}/comments`, {username, body})
 }
+
+export const deleteCommentByCommentId = (id) => {
+  return myApi.delete(`/comments/${id}`)
+}
