@@ -1,34 +1,16 @@
 import { useState } from "react";
 import { UserContext } from "./User";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { postCommentsByReviewId } from "../api";
-import CommentsList from "./CommentsList";
-import { fetchCommentsByReviewId } from "../api";
 
-const CommentAdder = ({ review_id }) => {
-  const [count, setCount] = useState(0);
+const CommentAdder = ({ review_id, setComments }) => {
   const { user } = useContext(UserContext);
   const [comment, setComment] = useState({
     author: user,
     body: "",
   });
-  const [comments, setComments] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [err, setErr] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setErr(null);
-    fetchCommentsByReviewId(review_id)
-      .then((comments) => {
-        setComments(comments);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setErr("Oops, something went wrong, try again later");
-      });
-  }, [review_id]);
+  const [err, setErr] = useState(null);
 
   const handleChange = (event) => {
     setComment({
@@ -39,24 +21,17 @@ const CommentAdder = ({ review_id }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setCount((currCount) => currCount + 1);
     setIsDisabled(true);
     postCommentsByReviewId(review_id, comment.author, comment.body)
       .then((res) => {
         setComments((currComments) => [res.data.comment, ...currComments]);
         setIsDisabled(false);
+        setComment({ author: user, body: "" });
       })
       .catch((err) => {
         setErr(err.response.data.msg);
         setIsDisabled(false);
       });
-    setComment({
-      comment_id: `Opt${count}`,
-      author: user,
-      body: "",
-      votes: 0,
-      created_at: "Now",
-    });
   };
 
   return (
@@ -78,13 +53,12 @@ const CommentAdder = ({ review_id }) => {
               name="body"
               id="messageInput"
             ></input>
+            <button type="submit" className="messageSubmit">
+              <b>Submit</b>
+            </button>
           </>
         )}
-        <button type="submit" className="messageSubmit">
-          <b>Submit</b>
-        </button>
       </form>
-      {isLoading ? <h3>Loading ...</h3> : <CommentsList comments={comments} />}
     </section>
   );
 };

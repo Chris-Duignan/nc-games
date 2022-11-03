@@ -18,7 +18,6 @@ const SortForm = ({ setSearchParams }) => {
     });
   }, []);
 
-  console.log(searchTerm);
   const handleChange = (event) => {
     setSearchTerm({ ...searchTerm, [event.target.name]: event.target.value });
   };
