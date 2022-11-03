@@ -4,8 +4,8 @@ const myApi = axios.create({
   baseURL: "https://board-games-galore.herokuapp.com/api",
 });
 
-export const fetchReviews = () => {
-  return myApi.get("/reviews").then((res) => {
+export const fetchReviews = (searchParams) => {
+  return myApi.get("/reviews", {params:{...searchParams}}).then((res) => {
     return res.data.reviews;
   });
 };
