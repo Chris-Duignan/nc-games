@@ -1,3 +1,7 @@
+/* Palette - A20021, EDEDF4, 7D84B2 0A1128 001F54 */
+
+/*Basic styling*/
+
 * {
   margin: 0;
   padding: 0
@@ -5,10 +9,9 @@
 
 
 .App {
-  position: relative;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 li {
@@ -33,7 +36,6 @@ li {
   color: #ededf4;
   width: 100%;
   height: 5rem;
-
 }
 
 /*Nav*/
@@ -61,6 +63,16 @@ li {
   height: 100%;
 }
 
+/*Footer*/
+
+.footer {
+  margin-top: auto;
+  background-color: #A20021;
+  color: #ededf4;
+  width: 100%;
+  height: 5rem;
+}
+
 /*Main*/
 
 main {
@@ -70,18 +82,6 @@ main {
   flex-direction: column;
 }
 
-
-
-/*Footer*/
-
-.footer {
-  background-color: #A20021;
-  color: #ededf4;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-}
 
 .cardList {
   width: 100%;
@@ -180,7 +180,6 @@ object-fit: cover;
 }
 
 
-/* Palette - A20021, EDEDF4, 7D84B2 0A1128 001F54 */
 
 /*Error Container*/
 
