@@ -3,55 +3,76 @@
   padding: 0
 }
 
-li {
-  list-style: none;
-}
 
 .App {
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.Header {
+li {
+  list-style-type: none;
+}
+
+.link {
+  text-decoration: none;
+  color: #ededf4
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Header*/
+
+.header {
   background-color: #A20021;
   color: #ededf4;
   width: 100%;
   height: 5rem;
+
 }
 
-.nav {
+/*Nav*/
+
+.navBar {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
   height: 2.5rem;
   background-color: #a20021;
   border-top: 1px #ededf4 solid;
   color: #ededf4;
 }
 
-.navList > * {
-  display: inline;
-  text-align: center;
+.navList {
+  flex-grow: 1;
   font-weight: bold;
-  border-right: 1px #ededf4 solid;
   text-decoration: none;
   color: #ededf4;
   width: 160px;
 }
 
-.dropdown {
-  border-right: 1px #ededf4 solid;
-  position: absolute;
-  z-index: 99;
-  width: 160px;
-  color: #ededf4;
-  background-color: #A20021;
-  list-style-type: none;
+.navListItem {
+  flex-grow: 1;
+  height: 100%;
 }
 
-.dropdownOption {
-  color: #ededf4;
-  text-decoration: none;
-  background-color: #a20021;
+/*Main*/
+
+main {
+  width: 90%;
+  margin: 2.5rem auto;
+  display: flex;
+  flex-direction: column;
 }
 
+
+
+/*Footer*/
 
 .footer {
   background-color: #A20021;
@@ -60,13 +81,6 @@ li {
   bottom: 0;
   width: 100%;
   height: 2.5rem;
-}
-
-main {
-  width: 90%;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-  margin: 0 auto;
 }
 
 .cardList {
@@ -89,12 +103,6 @@ main {
   text-align: left;
   padding: 0.5% 2%;
   overflow: hidden;
-}
-
-
-.link {
-  text-decoration: none;
-  color: black;
 }
 
 .reviewCard section p {
