@@ -14,7 +14,7 @@ const CommentsContainer = ({ review_id }) => {
     fetchCommentsByReviewId(review_id)
       .then((comments) => {
         setComments(comments);
-        setIsLoading(false);
+        setIsLoading(false);  
       })
       .catch((err) => {
         setErr(err.response.data.msg);
@@ -25,7 +25,7 @@ const CommentsContainer = ({ review_id }) => {
   return (
     <section className="commentsContainer">
       <CommentAdder setComments={setComments} review_id={review_id}/>
-      <CommentsList comments={comments} isLoading={isLoading} err={err} />
+      <CommentsList comments={comments} isLoading={isLoading} err={err} setComments={setComments} />
     </section>
   );
 };

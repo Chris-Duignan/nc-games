@@ -1,8 +1,11 @@
 import Comment from "./Comment";
 import CommentPlaceholder from "./CommentPlaceHolder";
+import { UserContext } from "./User";
+import { useContext } from "react";
 
-const CommentsList = ({ comments, user, isLoading, err}) => {
+const CommentsList = ({ comments, setComments, isLoading, err}) => {
 
+  const {user} = useContext(UserContext)
 
   if (isLoading) return <h3>Loading</h3>
   if (err) return <h3>{err}</h3>
@@ -10,7 +13,7 @@ const CommentsList = ({ comments, user, isLoading, err}) => {
     <ul className="commentsList">
       <CommentPlaceholder comments={comments} />
       {comments.map((comment) => {
-        return <Comment user={user} key={comment.comment_id} comment={comment} />;
+        return <Comment user={user} key={comment.comment_id} comment={comment} setComments={setComments}/>;
       })}
     </ul>
   );
