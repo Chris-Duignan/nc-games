@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-const SortForm = () => {
-  const sortTerms = ["created_at", "comments", "votes"];
+const SortForm = ({ setSearchParams }) => {
+  const sortTerms = ["created_at", "comment_count", "votes"];
   const order = ["asc", "desc"];
 
   const [searchTerm, setSearchTerm] = useState({
@@ -13,14 +13,13 @@ const SortForm = () => {
     setSearchTerm({ ...searchTerm, [event.target.name]: event.target.value });
   };
 
-  console.log(searchTerm)
-
   const handleSubmit = (event) => {
     event.preventDefault();
+    setSearchParams(searchTerm);
   };
 
   return (
-    <form className="sortBar" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="sortForm">
       <label>
         Sort By:
         <select name="sort_by" id="sort_by" onChange={handleChange}>
@@ -31,14 +30,16 @@ const SortForm = () => {
           ))}
         </select>
       </label>
-      {order.map((o) => {
-        return (
-          <label key={`label${o}`}>
-            {o}
-            <input key={o} type="radio" id={o} name="order" value={o} onChange={handleChange}></input>
-          </label>
-        );
-      })}
+      <label>
+        Order:
+        <select name="order" id="order" onChange={handleChange}>
+          {order.map((direction) => (
+            <option key={direction} name="order" value={direction}>
+              {direction}
+            </option>
+          ))}
+        </select>
+      </label>
       <button type="submit">Submit</button>
     </form>
   );

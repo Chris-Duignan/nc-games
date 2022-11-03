@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import { fetchReviews } from "../api";
 import ReviewCard from "./ReviewCard";
 
 const ReviewList = ({reviews, isLoading}) => {
