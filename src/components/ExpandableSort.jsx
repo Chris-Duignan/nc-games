@@ -1,16 +1,15 @@
 import { useState } from "react";
 
-const ExpandableSort = ( props ) => {
+const ExpandableSort = ( {children, className, tag }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const {children} = props;
   const toggleOpen = () => {
     setIsOpen((currOpen) => !currOpen);
   };
 
   return (
     <>
-      <button onClick={toggleOpen} className={props.className}>{isOpen ? "Close" : "Open"}</button>
+      <button onClick={toggleOpen} className={className}>{isOpen ? "Close" : tag}</button>
       {isOpen && children}
     </>
   );
