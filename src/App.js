@@ -20,7 +20,6 @@ function App() {
           <Routes>
             <Route path="/" element={<ReviewContainer/>} />
             <Route path="/reviews/:review_id" element={<SingleReview />} />
-            <Route path="/categories/:slug" element={<CategoryList />} />
           </Routes>
           <Footer />
         </div>
