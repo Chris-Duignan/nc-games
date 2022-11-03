@@ -4,7 +4,7 @@ import { UserContext } from "./components/User";
 import "./App.css";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
-import ReviewList from "./components/ReviewList";
+import ReviewContainer from "./components/ReviewContainer";
 import CategoryList from "./components/CategoryList";
 import SingleReview from "./components/SingleReview";
 import Footer from "./components/Footer";
@@ -18,9 +18,8 @@ function App() {
           <Header />
           <Nav />
           <Routes>
-            <Route path="/" element={<ReviewList/>} />
+            <Route path="/" element={<ReviewContainer/>} />
             <Route path="/reviews/:review_id" element={<SingleReview />} />
-            <Route path="/categories/:slug" element={<CategoryList />} />
           </Routes>
           <Footer />
         </div>
