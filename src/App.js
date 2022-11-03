@@ -5,7 +5,6 @@ import "./App.css";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import ReviewContainer from "./components/ReviewContainer";
-import CategoryList from "./components/CategoryList";
 import SingleReview from "./components/SingleReview";
 import Footer from "./components/Footer";
 
