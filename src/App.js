@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import ReviewContainer from "./components/ReviewContainer";
 import SingleReview from "./components/SingleReview";
 import Footer from "./components/Footer";
+import ErrorContainer from "./components/ErrorContainer";
 
 function App() {
   const [user, setUser] = useState("grumpy19");
@@ -17,7 +18,8 @@ function App() {
           <Header />
           <Nav />
           <Routes>
-            <Route path="/" element={<ReviewContainer/>} />
+            <Route path="*" element={<ErrorContainer />} />
+            <Route path="/" element={<ReviewContainer />} />
             <Route path="/reviews/:review_id" element={<SingleReview />} />
           </Routes>
           <Footer />
