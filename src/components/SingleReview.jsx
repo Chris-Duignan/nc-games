@@ -50,7 +50,7 @@ const SingleReview = () => {
         <article className="review">
           <img
             src={review.review_img_url}
-            alt={`game pieces for {review.title}`}
+            alt={`game pieces for ${review.title}`}
             className="reviewImg"
           ></img>
           <section>
