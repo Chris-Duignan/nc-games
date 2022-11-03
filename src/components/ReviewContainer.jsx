@@ -9,16 +9,22 @@ const ReviewContainer = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
     const currentParams = Object.fromEntries([...searchParams]);
-    fetchReviews(currentParams).then((reviews) => {
-      setReviews(reviews);
-      setIsLoading(false);
-    });
+    fetchReviews(currentParams)
+      .then((reviews) => {
+        setReviews(reviews);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setErr(err.response.data.msg);
+        setIsLoading(false);
+      });
   }, [searchParams]);
-
+  
   return (
     <main className="reviewContainer">
       <section className="sortBar">
@@ -26,7 +32,7 @@ const ReviewContainer = () => {
           <SortBar setSearchParams={setSearchParams} />
         </ExpandableSort>
       </section>
-      <ReviewList isLoading={isLoading} reviews={reviews} />
+      <ReviewList isLoading={isLoading} reviews={reviews} err={err}/>
     </main>
   );
 };
