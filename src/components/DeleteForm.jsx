@@ -16,6 +16,7 @@ const DeleteForm = ({ id, setComments, setIsDisabled, setErr }) => {
       })
       .catch((err) => {
         setErr(err.response.data.msg);
+        setIsDisabled(false);
       });
   };
 

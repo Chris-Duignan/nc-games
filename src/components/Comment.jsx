@@ -6,13 +6,13 @@ const Comment = ({ comment, user, setComments }) => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [err, setErr] = useState(null);
 
-  if (err) return <p>{err}</p>
   return (
     <>
       {isDisabled ? (
         <p>Please Wait</p>
       ) : (
         <article className="comment">
+          {err ? <p>Oops, Something went wrong, please try again</p>: null}
           <h3>{comment.author}</h3>
           <p>at {comment.created_at}</p>
           <p>{comment.body}</p>
