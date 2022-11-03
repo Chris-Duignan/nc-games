@@ -8,9 +8,6 @@ const SortForm = ({ setSearchParams }) => {
   const [categories, setCategories] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState({
-    category: "strategy",
-    sort_by: "created_at",
-    order: "desc",
   });
 
   useEffect(() => {
