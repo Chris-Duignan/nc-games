@@ -7,8 +7,7 @@ const SortForm = ({ setSearchParams }) => {
 
   const [categories, setCategories] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState({
-  });
+  const [searchTerm, setSearchTerm] = useState({});
 
   useEffect(() => {
     setIsLoading(true);
@@ -20,6 +19,12 @@ const SortForm = ({ setSearchParams }) => {
 
   const handleChange = (event) => {
     setSearchTerm({ ...searchTerm, [event.target.name]: event.target.value });
+  };
+
+  const handleReset = (event) => {
+    event.preventDefault();
+    setSearchTerm({});
+    setSearchParams();
   };
 
   const handleSubmit = (event) => {
@@ -75,6 +80,7 @@ const SortForm = ({ setSearchParams }) => {
           ))}
         </select>
       </label>
+      <button onClick={handleReset}>Reset</button>
       <button type="submit">Submit</button>
     </form>
   );
