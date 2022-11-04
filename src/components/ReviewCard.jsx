@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const ReviewCard = ({ review }) => {
   return (
-    <Link className="link" to={`/reviews/${review.review_id}`}>
-      <li className="reviewCard">
+    <Link className="link cardLink" to={`/reviews/${review.review_id}`}>
+      <li className="reviewCard card">
         <img src={review.review_img_url} alt={`game pieces for ${review.title}`} className="thumbnail"></img>
         <section>
           <h3>{review.title}</h3>

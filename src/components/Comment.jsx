@@ -11,7 +11,7 @@ const Comment = ({ comment, user, setComments }) => {
       {isDisabled ? (
         <p>Please Wait</p>
       ) : (
-        <article className="comment">
+        <article className="comment card">
           {err ? <p>Oops, Something went wrong, please try again</p>: null}
           <h3>{comment.author}</h3>
           <p>at {comment.created_at}</p>
