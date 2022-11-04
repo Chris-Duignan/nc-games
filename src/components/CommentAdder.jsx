@@ -35,7 +35,7 @@ const CommentAdder = ({ review_id, setComments }) => {
   };
 
   return (
-    <section className="commentsContainer">
+    <section className="commentAdder">
       <form onSubmit={handleSubmit}>
         {err ? <h3>{err}</h3> : null}
         {isDisabled ? (
