@@ -66,7 +66,7 @@ li {
 /*Footer*/
 
 .footer {
-  margin-top: auto;
+  bottom: 0;
   background-color: #A20021;
   color: #ededf4;
   width: 100%;
@@ -80,152 +80,11 @@ main {
   margin: 2.5rem auto;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 
-.cardList {
-  width: 100%;
-}
-
-.reviewCard {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  height: 10rem;
-  margin: 1% auto;
-  border-radius: 10px;
-  background-color: #ededf4;
-  
-}
-
-.reviewCard > section {
-  max-width: 80%;
-  text-align: left;
-  padding: 0.5% 2%;
-  overflow: hidden;
-}
-
-.reviewCard section p {
-  margin: 0.5rem;
-}
-
-.review {
-  text-align: center;
-  width: 90vw;
-  height: auto;
-  margin: 2% auto;
-  background-color: #ededf4;
-  border-radius: 10px;
-}
-
-.review img {
-  border-radius: 10px 10px 0 0;
-}
-
-.thumbnail {
- height: 100%;
- width: 15%;
- object-fit: cover;
- border-radius: 10px;
- margin: 0;
-}
-
-.reviewImg {
-height: 10rem;
-width: 100%;
-object-fit: cover;
-}
-
-.reviewBody {
-  margin: 1% auto;
-}
-
-.title {
-  display: inline-block;
-}
-
-.byline {
-  display: inline-block;
-}
-
-.vote {
-  padding-bottom: 2.5rem;
-}
-
-.vote > * {
-  margin: 5px;
-}
-
-.commentsContainer {
-  text-align: center;
-  border-top: 2px #A20021 solid;
-  border-right: 2px #A20021 solid;
-  border-left: 2px #A20021 solid;
-  border-radius: 10px 10px 0 0;
-  padding: 1rem;
-  margin: 1% auto;
-  width: 100%;
-}
-
-.commentsList {
-  margin: 1rem auto;
-  width: 100%;
-  padding-bottom: 2.5rem
-}
-
-.comment {
-  margin: 0.5rem;
-  border: 1px #7D84B2 solid;
-  border-radius: 10px;
-}
-
-
-
-/*Error Container*/
-
-.errorContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/*Review Container*/
-
-.reviewContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-/*Comment adder*/
-
-.singleReview {
-  padding-bottom: 0;
-}
-
-.messageInput {
-  margin:  auto;
-  width: 70%;
-  height: 2rem;
-  background-color: #ededf4;
-  border-radius: 25px 0 0 25px;
-  text-align: center;
-  outline: 0;
-  border: 0;
-}
-
-.messageSubmit {
-  width: 20%;
-  height: 2rem;
-  background-color: #001F54;
-  color: #ededf4;
-  border: 0;
-  border-radius: 0 25px 25px 0;
-  outline: 0;
-}
-
-#commentLabel {
-  display: block;
-}
+/*Main reviews page*/
 
 /*Sort Bar*/
 
@@ -258,3 +117,178 @@ object-fit: cover;
   width: 100%;
   padding: 1rem 0 1rem 0;
 }
+
+/*Cards*/
+
+.cardList {
+  width: 100%;
+}
+
+.cardLink {
+  color: black;
+}
+
+.card {
+  background-color: #ededf4;
+  color: black;
+  border: 0;
+  border-radius: 10px;
+}
+
+/*Single Review Page*/
+
+.singleReview {
+  margin: 0 auto;
+}
+
+
+/*Comments*/
+
+.commentsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 2px #A20021 solid;
+  border-right: 2px #A20021 solid;
+  border-left: 2px #A20021 solid;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+.commentAdder {
+  width: 90%;
+  text-align: center;
+  margin: 1rem;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  height: 10rem;
+  margin: 1% auto;
+}
+
+.reviewCard > section {
+  max-width: 80%;
+  text-align: left;
+  padding: 0.5% 2%;
+  overflow: hidden;
+}
+
+.reviewCard section p {
+  margin: 0.5rem;
+}
+
+.review {
+  text-align: center;
+  width: 90vw;
+  height: auto;
+  margin: 2% auto;
+  background-color: #ededf4;
+  border-radius: 10px;
+}
+
+.review img {
+  border-radius: 10px 10px 0 0;
+}
+
+.thumbnail {
+ height: 100%;
+ width: 15%;
+ object-fit: cover;
+ border-radius: 10px 0 0 10px;
+ margin: 0;
+}
+
+.reviewImg {
+height: 10rem;
+width: 100%;
+object-fit: cover;
+}
+
+.reviewBody {
+  margin: 1% auto;
+}
+
+.title {
+  display: inline-block;
+}
+
+.byline {
+  display: inline-block;
+}
+
+.vote {
+  padding-bottom: 2.5rem;
+}
+
+.vote > * {
+  margin: 5px;
+}
+
+/* .commentsContainer {
+  text-align: center;
+  border-top: 2px #A20021 solid;
+  border-right: 2px #A20021 solid;
+  border-left: 2px #A20021 solid;
+  border-radius: 10px 10px 0 0;
+  padding: 1rem;
+  margin: 1% auto;
+  width: 100%;
+} */
+
+.commentsList {
+  margin: 1rem auto;
+  width: 100%;
+  padding-bottom: 2.5rem
+}
+
+.comment {
+  width: 90%;
+  margin: 1rem auto;
+}
+
+
+
+/*Error Container*/
+
+.errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Comment adder*/
+
+.singleReview {
+  padding-bottom: 0;
+}
+
+.messageInput {
+  margin: 0 auto;
+  width: 70%;
+  height: 2rem;
+  background-color: #ededf4;
+  border-radius: 25px 0 0 25px;
+  text-align: center;
+  outline: 0;
+  border: 0;
+}
+
+.messageSubmit {
+  width: 20%;
+  height: 2rem;
+  background-color: #001F54;
+  color: #ededf4;
+  border: 0;
+  border-radius: 0 25px 25px 0;
+  outline: 0;
+}
+
+#commentLabel {
+  display: block;
+}
+
+
