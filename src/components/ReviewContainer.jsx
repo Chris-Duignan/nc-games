@@ -24,7 +24,7 @@ const ReviewContainer = () => {
         setIsLoading(false);
       });
   }, [searchParams]);
-  
+
   return (
     <main className="reviewContainer">
       <section className="sortBar">
@@ -32,7 +32,7 @@ const ReviewContainer = () => {
           <SortBar setSearchParams={setSearchParams} />
         </ExpandableSort>
       </section>
-      <ReviewList isLoading={isLoading} reviews={reviews} err={err}/>
+      <ReviewList isLoading={isLoading} reviews={reviews} err={err} />
     </main>
   );
 };

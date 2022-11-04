@@ -3,23 +3,28 @@ import { fetchCategories } from "../api";
 
 const SortForm = ({ setSearchParams }) => {
   const sortTerms = ["created_at", "comment_count", "votes"];
-  const order = ["asc", "desc"];
+  const order = ["desc", "asc"];
 
-  const [categories, setCategories] = useState(null);
+  const [categories, setCategories] = useState([{slug: "all reviews"}]);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState({
-  });
+  const [searchTerm, setSearchTerm] = useState({category: "all reviews", sort_by: "created_at", order: "desc"});
 
   useEffect(() => {
     setIsLoading(true);
     fetchCategories().then((categories) => {
-      setCategories(categories);
+      setCategories(currCategories => [...currCategories, ...categories]);
       setIsLoading(false);
     });
   }, []);
 
   const handleChange = (event) => {
     setSearchTerm({ ...searchTerm, [event.target.name]: event.target.value });
+  };
+
+  const handleReset = (event) => {
+    event.preventDefault();
+    setSearchTerm({sort_by: "created_at", order: "desc"});
+    setSearchParams();
   };
 
   const handleSubmit = (event) => {
@@ -75,6 +80,7 @@ const SortForm = ({ setSearchParams }) => {
           ))}
         </select>
       </label>
+      <button onClick={handleReset}>Reset</button>
       <button type="submit">Submit</button>
     </form>
   );
