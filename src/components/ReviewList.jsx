@@ -6,7 +6,7 @@ const ReviewList = ({reviews, isLoading,err}) => {
   if (err) return <h3>{err}</h3>;
   else
     return (
-      <section className="reviewsList">
+      <section className="reviewsList cardList">
         <h2>You are viewing all results</h2>
         <ul className="cardList">
           {reviews.map((review) => {
