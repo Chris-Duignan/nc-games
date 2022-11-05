@@ -9,16 +9,17 @@ const useReviews = () => {
   useEffect(() => {
     setIsLoading(true);
     setErr(null);
-    fetchReviews((reviews) => {
-      setReviews(reviews);
-      setIsLoading(false);
-    }).catch((err) => {
-      setErr(err.response.data.msg);
-      setIsLoading(false);
-    });
+    fetchReviews()
+      .then((reviews) => {
+        setReviews(reviews);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setErr(err.response);
+        setIsLoading(false);
+      });
   }, []);
 
-  console.log(reviews);
   return { reviews, isLoading, err };
 };
 
