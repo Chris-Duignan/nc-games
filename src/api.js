@@ -4,13 +4,24 @@ const myApi = axios.create({
   baseURL: "https://board-games-galore.herokuapp.com/api",
 });
 
-export const fetchReviews = (searchParams) => {
-  if (searchParams.category === "all reviews") {
-    delete searchParams.category;
-  }
-  return myApi.get("/reviews", { params: { ...searchParams } }).then((res) => {
-    return res.data.reviews;
-  });
+// export const fetchReviews = (searchParamsconsole.log(reviews);) => {
+//   if (searchParams.category === "all reviews") {
+//     delete searchParams.category;
+//   }
+//   return myApi.get("/reviews", { params: { ...searchParams } }).then((res) => {
+//     return res.data.reviews;
+//   });
+// };
+
+export const fetchReviews = () => {
+  return myApi
+    .get("/reviews")
+    .then((res) => {
+      return res.data.reviews;
+    })
+    .catch((err) => {
+      return err.response;
+    });
 };
 
 export const fetchReviewById = (review_id) => {
