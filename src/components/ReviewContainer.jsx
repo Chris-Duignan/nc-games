@@ -1,27 +1,20 @@
-// import { useState, useEffect } from "react";
-// import { useSearchParams } from "react-router-dom";
-// import { fetchReviews } from "../api";
-// import ExpandableSort from "./ExpandableSort";
-// import SortBar from "./SortForm";
-
-import useReviews from "../hooks/useReviews";
 import ReviewList from "./ReviewList";
 
 const ReviewContainer = () => {
-  const reviews = useReviews();
-  
   return (
     <main className="reviewContainer">
-      <ReviewList
-        isLoading={reviews.isLoading}
-        reviews={reviews.reviews}
-        err={reviews.err}
-      />
+      <ReviewList />
     </main>
   );
 };
 
 export default ReviewContainer;
+
+// import { useState, useEffect } from "react";
+// import { useSearchParams } from "react-router-dom";
+// import { fetchReviews } from "../api";
+// import ExpandableSort from "./ExpandableSort";
+// import SortBar from "./SortForm";
 
 // const ReviewContainer = () => {
 //   const [reviews, setReviews] = useState([]);

@@ -1,9 +1,13 @@
+import useReviews from "../hooks/useReviews";
+import ErrorHandler from "./ErrorHandler";
+import Loading from "./Loading";
 import ReviewCard from "./ReviewCard";
 
-const ReviewList = ({reviews, isLoading,err}) => {
+const ReviewList = () => {
+  const { reviews, isLoading, err } = useReviews();
 
-  if (isLoading) return <h3 className="loading">Loading ...</h3>;
-  if (err) return <h3>{err}</h3>;
+  if (isLoading) return <Loading />;
+  if (err) return <ErrorHandler err={err} />;
   else
     return (
       <section className="reviewsList cardList">
