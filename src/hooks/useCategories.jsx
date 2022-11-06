@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { fetchReviews } from "../api";
+import { fetchCategories } from "../api";
 
-const useReviews = () => {
+const useCategories = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(null);
@@ -9,9 +9,9 @@ const useReviews = () => {
   useEffect(() => {
     setIsLoading(true);
     setErr(null);
-    fetchReviews()
-      .then((reviews) => {
-        setData(reviews);
+    fetchCategories()
+      .then((categories) => {
+        setData(categories);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -23,4 +23,4 @@ const useReviews = () => {
   return { data, isLoading, err };
 };
 
-export default useReviews;
+export default useCategories;
