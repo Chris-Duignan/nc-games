@@ -5,9 +5,11 @@ import "./App.css";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import ReviewContainer from "./components/ReviewContainer";
+import CategoryContainer from "./components/CategoryContainer";
 import SingleReview from "./components/SingleReview";
 import Footer from "./components/Footer";
 import ErrorContainer from "./components/ErrorContainer";
+import ReviewCategoryContainer from "./components/ReviewCategoryContainer";
 
 function App() {
   const [user, setUser] = useState("grumpy19");
@@ -20,6 +22,8 @@ function App() {
           <Routes>
             <Route path="*" element={<ErrorContainer />} />
             <Route path="/" element={<ReviewContainer />} />
+            <Route path="/categories" element={<CategoryContainer />} />
+            <Route path="/categories/:slug" element={<ReviewCategoryContainer/>}/>
             <Route path="/reviews/:review_id" element={<SingleReview />} />
           </Routes>
           <Footer />
