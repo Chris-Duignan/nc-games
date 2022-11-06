@@ -4,8 +4,8 @@ import ReviewCard from "./ReviewCard";
 
 const ReviewContainer = () => {
   const reviews = useReviews();
-  const title = <h3>You are viewing all reviews</h3>
-  
+  const title = "You are viewing all reviews";
+
   return (
     <main className="reviewContainer">
       <CardList data={reviews} title={title} card={ReviewCard} />
