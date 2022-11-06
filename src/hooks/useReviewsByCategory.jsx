@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
-import { fetchReviews } from "../api";
+import { useParams } from "react-router-dom";
+import { fetchReviewsByCategory } from "../api";
 
-const useReviews = () => {
+const useReviewsByCategory = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(null);
+  const { slug } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
     setErr(null);
-    fetchReviews()
+    fetchReviewsByCategory(slug)
       .then((reviews) => {
         setData(reviews);
         setIsLoading(false);
@@ -18,9 +20,9 @@ const useReviews = () => {
         setErr(err.response);
         setIsLoading(false);
       });
-  }, []);
+  }, [slug]);
 
-  return { data, isLoading, err };
+  return { data, slug, isLoading, err };
 };
 
-export default useReviews;
+export default useReviewsByCategory;

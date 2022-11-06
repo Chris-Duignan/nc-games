@@ -14,14 +14,9 @@ const myApi = axios.create({
 // };
 
 export const fetchReviews = () => {
-  return myApi
-    .get("/reviews")
-    .then((res) => {
-      return res.data.reviews;
-    })
-    .catch((err) => {
-      return err.response;
-    });
+  return myApi.get("/reviews").then((res) => {
+    return res.data.reviews;
+  });
 };
 
 export const fetchReviewById = (review_id) => {
