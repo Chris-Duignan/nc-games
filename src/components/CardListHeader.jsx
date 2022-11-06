@@ -1,7 +1,5 @@
-const CardListHeader =({children}) => {
+const CardListHeader = ({ children }) => {
+  return <h2>{children}</h2>;
+};
 
-    return children
-
-}
-
-export default CardListHeader
+export default CardListHeader;

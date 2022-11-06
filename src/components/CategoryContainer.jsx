@@ -4,7 +4,7 @@ import CategoryCard from "./CategoryCard";
 
 const CategoryContainer = () => {
   const categories = useCategories();
-  const title = <h3>You are viewing Categories</h3>;
+  const title = "You are viewing Categories";
 
   return (
     <main className="reviewContainer">
