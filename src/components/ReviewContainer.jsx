@@ -1,9 +1,14 @@
-import ReviewList from "./ReviewList";
+import useReviews from "../hooks/useReviews";
+import CardList from "./CardList";
+import ReviewCard from "./ReviewCard";
 
 const ReviewContainer = () => {
+  const reviews = useReviews();
+  const title = <h3>You are viewing all reviews</h3>
+  
   return (
     <main className="reviewContainer">
-      <ReviewList />
+      <CardList data={reviews} title={title} card={ReviewCard} />
     </main>
   );
 };
