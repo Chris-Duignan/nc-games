@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { formatDate } from "../utils/formatDate";
 
-const ReviewCard = ({ review }) => {
+const ReviewCard = (review) => {
   const date = formatDate(review.created_at);
+
   return (
-    <Link className="link cardLink" to={`/reviews/${review.review_id}`}>
+    <Link
+      className="link cardLink"
+      to={`/reviews/${review.review_id}`}
+      key={review.review_id}
+    >
       <li className="reviewCard card">
         <img
           src={review.review_img_url}
