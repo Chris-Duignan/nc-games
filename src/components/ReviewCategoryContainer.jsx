@@ -4,7 +4,7 @@ import ReviewCard from "./ReviewCard";
 
 const ReviewCategoryContainer = () => {
   const reviews = useReviewsByCategory();
-  const title = <h3>You are viewing {reviews.slug} games</h3>;
+  const title = `You are viewing ${reviews.slug} games`;
 
   return (
     <main className="reviewContainer">
