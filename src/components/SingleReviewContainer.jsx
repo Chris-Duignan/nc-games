@@ -1,5 +1,4 @@
 import useReview from "../hooks/useReview";
-import useVotePatch from "../hooks/useVotePatch";
 import CommentsContainer from "./CommentsContainer";
 import Loading from "./Loading";
 import ReviewContent from "./ReviewContent";
@@ -7,6 +6,7 @@ import ReviewHeader from "./ReviewHeader";
 
 const SingleReviewContainer = () => {
   const { data, isLoading, err, review_id } = useReview();
+  console.log(data);
   // const incrementVotesClick = () => {
   //   setVotes((currVotes) => currVotes + 1);
   //   setErr(null);
@@ -33,7 +33,6 @@ const SingleReviewContainer = () => {
         <article className="review">
           <ReviewHeader>{data}</ReviewHeader>
           <ReviewContent>{data}</ReviewContent>
-          <button></button>
           {/* <section className="vote">
             <button onClick={incrementVotesClick}>Upvote</button>
             <p>
