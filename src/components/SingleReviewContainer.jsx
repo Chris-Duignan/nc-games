@@ -1,5 +1,4 @@
 import useReview from "../hooks/useReview";
-// import CommentsContainer from "./CommentsContainer";
 import CommentsContainerRefactor from "./CommentsContainerRefactor";
 import Loading from "./Loading";
 import ReviewContent from "./ReviewContent";
@@ -20,7 +19,6 @@ const SingleReviewContainer = () => {
           <Votes />
         </article>
         <CommentsContainerRefactor />
-        {/* <CommentsContainer review_id={review_id} /> */}
       </main>
     );
 };
