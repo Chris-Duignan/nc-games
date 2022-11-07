@@ -228,16 +228,15 @@ object-fit: cover;
   margin: 5px;
 }
 
-/* .commentsContainer {
+.commentsContainer {
   text-align: center;
   border-top: 2px #A20021 solid;
   border-right: 2px #A20021 solid;
   border-left: 2px #A20021 solid;
   border-radius: 10px 10px 0 0;
-  padding: 1rem;
   margin: 1% auto;
   width: 100%;
-} */
+}
 
 .commentsList {
   margin: 1rem auto;

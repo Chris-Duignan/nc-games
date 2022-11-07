@@ -7,7 +7,7 @@ const CommentsContainerRefactor = () => {
   const title = "Comments";
 
   return (
-    <main className="reviewContainer">
+    <main className="commentsContainer">
       <CardList data={comments} title={title} card={CommentCard} />
     </main>
   );
