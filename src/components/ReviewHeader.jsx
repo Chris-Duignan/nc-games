@@ -1,3 +1,5 @@
+import { formatDate } from "../utils/formatDate";
+
 const ReviewHeader = ({ children: data }) => {
   return (
     <>
@@ -11,7 +13,7 @@ const ReviewHeader = ({ children: data }) => {
         <p> from {data.designer}</p>
         <p className="category">
           Posted in <em>{data.category}</em> by <b>{data.owner}</b> at{" "}
-          {data.created_at}
+          {formatDate(data.created_at)}
         </p>
       </header>
       <br></br>

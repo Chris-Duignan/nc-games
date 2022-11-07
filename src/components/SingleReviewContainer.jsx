@@ -1,12 +1,13 @@
 import useReview from "../hooks/useReview";
-import CommentsContainer from "./CommentsContainer";
+// import CommentsContainer from "./CommentsContainer";
+import CommentsContainerRefactor from "./CommentsContainerRefactor";
 import Loading from "./Loading";
 import ReviewContent from "./ReviewContent";
 import ReviewHeader from "./ReviewHeader";
 import Votes from "./Votes";
 
 const SingleReviewContainer = () => {
-  const { data, isLoading, err, review_id } = useReview();
+  const { data, isLoading, err } = useReview();
 
   if (err) return <Loading err={err} />;
   if (isLoading) return <h3>Loading ...</h3>;
@@ -18,7 +19,8 @@ const SingleReviewContainer = () => {
           <ReviewContent>{data}</ReviewContent>
           <Votes />
         </article>
-        <CommentsContainer review_id={review_id} />
+        <CommentsContainerRefactor />
+        {/* <CommentsContainer review_id={review_id} /> */}
       </main>
     );
 };
