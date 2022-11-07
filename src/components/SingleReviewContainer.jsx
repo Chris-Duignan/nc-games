@@ -3,27 +3,10 @@ import CommentsContainer from "./CommentsContainer";
 import Loading from "./Loading";
 import ReviewContent from "./ReviewContent";
 import ReviewHeader from "./ReviewHeader";
+import Votes from "./Votes";
 
 const SingleReviewContainer = () => {
   const { data, isLoading, err, review_id } = useReview();
-  console.log(data);
-  // const incrementVotesClick = () => {
-  //   setVotes((currVotes) => currVotes + 1);
-  //   setErr(null);
-  //   patchReviewVotesById(review.review_id, 1).catch((err) => {
-  //     setVotes((currVotes) => currVotes - 1);
-  //     setErr("Oops, something went wrong, please try again");
-  //   });
-  // };
-
-  // const decrementVotesClick = () => {
-  //   setVotes((currVotes) => currVotes - 1);
-  //   setErr(null);
-  //   patchReviewVotesById(review.review_id, -1).catch((err) => {
-  //     setVotes((currVotes) => currVotes + 1);
-  //     setErr("Oops, something went wrong, please try again");
-  //   });
-  // };
 
   if (err) return <Loading err={err} />;
   if (isLoading) return <h3>Loading ...</h3>;
@@ -33,13 +16,7 @@ const SingleReviewContainer = () => {
         <article className="review">
           <ReviewHeader>{data}</ReviewHeader>
           <ReviewContent>{data}</ReviewContent>
-          {/* <section className="vote">
-            <button onClick={incrementVotesClick}>Upvote</button>
-            <p>
-              <b>{votes}</b> victory points
-            </p>
-            <button onClick={decrementVotesClick}>Downvote</button>
-    </section>  */}
+          <Votes />
         </article>
         <CommentsContainer review_id={review_id} />
       </main>
