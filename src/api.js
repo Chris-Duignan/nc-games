@@ -1,20 +1,17 @@
 import axios from "axios";
 
 const myApi = axios.create({
-  baseURL: "https://board-games-galore.herokuapp.com/api",
+  baseURL: "https://board-games-galore.cyclic.app/api",
 });
 
-// export const fetchReviews = (searchParamsconsole.log(reviews);) => {
-//   if (searchParams.category === "all reviews") {
-//     delete searchParams.category;
-//   }
+// export const fetchReviews = (searchParams) => {
 //   return myApi.get("/reviews", { params: { ...searchParams } }).then((res) => {
 //     return res.data.reviews;
 //   });
 // };
 
-export const fetchReviews = () => {
-  return myApi.get("/reviews").then((res) => {
+export const fetchReviews = (searchParams) => {
+  return myApi.get("/reviews", {params: {...searchParams}}).then((res) => {
     return res.data.reviews;
   });
 };
@@ -28,12 +25,6 @@ export const fetchReviewById = (review_id) => {
 export const fetchCategories = () => {
   return myApi.get("/categories").then((res) => {
     return res.data.categories;
-  });
-};
-
-export const fetchReviewsByCategory = (slug) => {
-  return myApi.get(`/reviews?category=${slug}`).then((res) => {
-    return res.data.reviews;
   });
 };
 

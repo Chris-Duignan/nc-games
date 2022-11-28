@@ -1,9 +1,15 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header className="header center">
-      <h1 className="title">Board Games Galore</h1>
+      <Link to="/">
+        <h1 className="title">Board Games Galore</h1>
+      </Link>
     </header>
   );
 };
+
+
 
 export default Header;
