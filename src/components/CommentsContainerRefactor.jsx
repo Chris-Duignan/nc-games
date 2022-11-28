@@ -9,7 +9,6 @@ const CommentsContainerRefactor = () => {
 
   return (
     <main className="commentsContainer">
-      <CardList data={comments} title={title} card={CommentCard} />
       <CommentAdder
         newComment={comments.newComment}
         addErr={comments.addErr}
@@ -17,6 +16,7 @@ const CommentsContainerRefactor = () => {
         handleChange={comments.handleChange}
         handleSubmit={comments.handleSubmit}
       />
+      <CardList data={comments} title={title} card={CommentCard} />
     </main>
   );
 };

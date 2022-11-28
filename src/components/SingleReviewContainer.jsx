@@ -12,7 +12,7 @@ const SingleReviewContainer = () => {
   if (isLoading) return <h3>Loading ...</h3>;
   else
     return (
-      <main className="singleReview">
+      <main className="singleReview" id="singleReview">
         <article className="review">
           <ReviewHeader>{data}</ReviewHeader>
           <ReviewContent>{data}</ReviewContent>

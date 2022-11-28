@@ -137,10 +137,6 @@ main {
 
 /*Single Review Page*/
 
-.singleReview {
-  margin: 0 auto;
-}
-
 
 /*Comments*/
 
@@ -214,6 +210,7 @@ object-fit: cover;
 
 .title {
   display: inline-block;
+  color: #ededf4;
 }
 
 .byline {
@@ -234,14 +231,12 @@ object-fit: cover;
   border-right: 2px #A20021 solid;
   border-left: 2px #A20021 solid;
   border-radius: 10px 10px 0 0;
-  margin: 1% auto;
   width: 100%;
 }
 
 .commentsList {
-  margin: 1rem auto;
+  margin: 1rem auto 0 auto;
   width: 100%;
-  padding-bottom: 2.5rem
 }
 
 .comment {
@@ -261,8 +256,10 @@ object-fit: cover;
 
 /*Comment adder*/
 
-.singleReview {
+#singleReview {
   padding-bottom: 0;
+  margin: 0 auto;
+  flex-basis: 1;
 }
 
 .messageInput {
