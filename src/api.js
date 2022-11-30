@@ -4,12 +4,6 @@ const myApi = axios.create({
   baseURL: "https://board-games-galore.cyclic.app/api",
 });
 
-// export const fetchReviews = (searchParams) => {
-//   return myApi.get("/reviews", { params: { ...searchParams } }).then((res) => {
-//     return res.data.reviews;
-//   });
-// };
-
 export const fetchReviews = (searchParams) => {
   return myApi.get("/reviews", {params: {...searchParams}}).then((res) => {
     return res.data.reviews;

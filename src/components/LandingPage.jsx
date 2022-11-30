@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const LandingPage = () => {
     return (
-        <main>
-            <h2>Welcome to Board Games Galore!</h2>
-            <p><Link to="/reviews">Click here to enter</Link></p>
+        <main className="landing">
+            <h2 className="landing-header">Welcome to Board Games Galore!</h2>
+            <p className="landing-content"><Link to="/reviews">Click here to enter</Link></p>
         </main>
     )
 }

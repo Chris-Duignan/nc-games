@@ -94,7 +94,7 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 0 auto 2.5rem 0;
+  margin: 0 auto 2.5rem 1rem;
   height: 2.5rem;
   background-color: #ededf4;
   border-radius: 10px;
@@ -113,15 +113,28 @@ main {
 .sortForm {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   border-radius: 10px;
   width: 100%;
   padding: 1rem 0 1rem 0;
+  background-color: #ededf4;
+  margin: 0 auto 1rem auto;
+}
+
+.sortForm > button {
+  background-color: #001F54;
+  color: #ededf4;
+  border-radius: 25px;
+  padding: 0.5rem;
+  outline: none;
+  border: 0;
 }
 
 /*Cards*/
 
 .cardList {
   width: 100%;
+  margin-top: 1.5rem;
 }
 
 .cardLink {
@@ -162,7 +175,7 @@ main {
   display: flex;
   flex-direction: row;
   list-style-type: none;
-  height: 10rem;
+  padding: 10px;
   margin: 1% auto;
 }
 
@@ -173,6 +186,27 @@ main {
   overflow: hidden;
 }
 
+.category-card {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-card  > h4{
+  width: 25%;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-card > p {
+  width: 75%;
+  margin-left: 1rem;
+}
 .reviewCard section p {
   margin: 0.5rem;
 }
@@ -180,7 +214,6 @@ main {
 .review {
   text-align: center;
   width: 90vw;
-  height: auto;
   margin: 2% auto;
   background-color: #ededf4;
   border-radius: 10px;
@@ -191,7 +224,6 @@ main {
 }
 
 .thumbnail {
- height: 100%;
  width: 15%;
  object-fit: cover;
  border-radius: 10px 0 0 10px;
@@ -217,14 +249,6 @@ object-fit: cover;
   display: inline-block;
 }
 
-.vote {
-  padding-bottom: 2.5rem;
-}
-
-.vote > * {
-  margin: 5px;
-}
-
 .commentsContainer {
   text-align: center;
   border-top: 2px #A20021 solid;
@@ -236,11 +260,16 @@ object-fit: cover;
 
 .commentsList {
   margin: 1rem auto 0 auto;
-  width: 100%;
+  width: 90%;
 }
 
 .comment {
   width: 90%;
+  margin: 1rem auto;
+}
+
+.comment-card {
+  width:90%;
   margin: 1rem auto;
 }
 
@@ -287,4 +316,100 @@ object-fit: cover;
   display: block;
 }
 
+.vote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.vote-btn {
+  height: 2.5rem;
+  width: 25%;
+  margin: 1rem 0;
+}
+
+.vote-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 2.5rem;
+  background-color: #eded;
+}
+
+.upvote {
+  border: 0;
+  outline: none;
+  background-color: #001F54;
+  color: #ededf4;
+  border-radius: 25px 0 0 25px;
+}
+
+.downvote {
+  border: 0;
+  outline: none;
+  background-color: #A20021;
+  color:#ededf4;
+  border-radius: 0 25px 25px 0;
+}
+
+.singleReviewCard {
+  padding: 2rem 10%;
+  text-align: justify;
+}
+
+.landing {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.landing-header {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.landing-content {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: start;
+}
+
+.user-info {
+  width: 100%;
+  background-color: #001F54;
+  color: #ededf4;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-body {
+  width: 100%;
+  padding: 5px;
+}
+
+.delete-btn {
+  background-color: #A20021;
+  color: #ededf4;
+  border: 0;
+  outline: none;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 5px;
+}

@@ -10,7 +10,7 @@ const ReviewContainer = () => {
 
   return (
     <main className="reviewContainer">
-      <ExpandableSort tag={"Sort"}>
+      <ExpandableSort tag={"Sort"} className={"sortButton"}>
         <SortForm
           handleChange={reviews.handleChange}
           handleSubmit={reviews.handleSubmit}

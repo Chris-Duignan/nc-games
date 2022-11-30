@@ -9,11 +9,13 @@ const Votes = () => {
   return (
     <section className="vote">
       {err ? <ErrorHandler err={err} /> : null}
-      <button onClick={incrementVotes}>Upvote</button>
-      <p>
-        <b>{votes}</b> victory points
-      </p>
-      <button onClick={decrementVotes}>Downvote</button>
+      <button onClick={incrementVotes} className="upvote vote-btn">
+        <b>Upvote</b>
+      </button>
+      <p className="vote-count">{votes} victory points</p>
+      <button onClick={decrementVotes} className="downvote vote-btn">
+        <b>Downvote</b>
+      </button>
     </section>
   );
 };
