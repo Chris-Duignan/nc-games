@@ -10,7 +10,7 @@ const ReviewCategoryContainer = () => {
 
   return (
     <main className="reviewContainer">
-      <ExpandableSort tag={"Sort"}>
+      <ExpandableSort tag={"Sort"} className={"sortButton"}>
         <SortForm handleChange={reviews.handleChange} handleSubmit={reviews.handleSubmit} handleReset={reviews.handleReset} searchTerm={reviews.searchTerm}></SortForm>
       </ExpandableSort>
       <CardList data={reviews} title={title} card={ReviewCard} />

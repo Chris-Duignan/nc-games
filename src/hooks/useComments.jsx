@@ -1,24 +1,27 @@
 import { useEffect } from "react";
+import { useCallback } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchCommentsByReviewId } from "../api";
+import { deleteCommentByCommentId, fetchCommentsByReviewId } from "../api";
 import { postCommentsByReviewId } from "../api";
 import { UserContext } from "../components/User";
 
 const useComments = () => {
+  const { user } = useContext(UserContext);
   const { review_id } = useParams();
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(null);
 
-  const { user } = useContext(UserContext);
   const [newComment, setNewComment] = useState({
     author: user,
     body: "",
   });
   const [addErr, setAddErr] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
+
+  const [delErr, setDelErr] = useState(null);
 
   const handleChange = (event) => {
     setNewComment({
@@ -43,21 +46,73 @@ const useComments = () => {
       });
   };
 
+  const handleDelete = useCallback(
+    (comment_id) => {
+      setIsLoading(true);
+      setDelErr(null);
+      deleteCommentByCommentId(comment_id).then(() => {
+        fetchCommentsByReviewId(review_id)
+          .then((comments) => {
+            const formatted_comments = comments.map((comment) => {
+              if (comment.author === user) {
+                return {
+                  ...comment,
+                  current_user: true,
+                  handleDelete: handleDelete,
+                };
+              } else {
+                return { ...comment, current_user: false };
+              }
+            });
+            setData(formatted_comments);
+            setIsLoading(false);
+          })
+          .catch((err) => {
+            setDelErr(err.response);
+            setIsLoading(false);
+          });
+      });
+    },
+    [review_id, user]
+  );
+
   useEffect(() => {
     setIsLoading(true);
     setErr(null);
     fetchCommentsByReviewId(review_id)
       .then((comments) => {
-        setData(comments);
+        const formatted_comments = comments.map((comment) => {
+          if (comment.author === user) {
+            return {
+              ...comment,
+              current_user: true,
+              handleDelete: handleDelete,
+            };
+          } else {
+            return { ...comment, current_user: false };
+          }
+        });
+        setData(formatted_comments);
         setIsLoading(false);
       })
       .catch((err) => {
         setErr(err.response);
         setIsLoading(false);
       });
-  }, [review_id]);
+  }, [review_id, user, handleDelete]);
 
-  return { data, isLoading, err, addErr, newComment, isDisabled, handleChange, handleSubmit };
+  return {
+    data,
+    isLoading,
+    err,
+    delErr,
+    addErr,
+    newComment,
+    isDisabled,
+    handleChange,
+    handleSubmit,
+    handleDelete,
+  };
 };
 
 export default useComments;
