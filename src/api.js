@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const myApi = axios.create({
-  baseURL: "https://board-games-galore.cyclic.app/api",
+  baseURL: "https://be-nc-games-haao.onrender.com/api",
 });
 
 export const fetchReviews = (searchParams) => {
-  return myApi.get("/reviews", {params: {...searchParams}}).then((res) => {
+  return myApi.get("/reviews", { params: { ...searchParams } }).then((res) => {
     return res.data.reviews;
   });
 };
